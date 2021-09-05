@@ -90,12 +90,15 @@ finally we increased the long sma again up to 223 while keeping the short sma at
 ![returns 31v223](https://user-images.githubusercontent.com/84096312/132141403-2aa05496-e020-4417-b3ad-a37fb779658f.png)
 
 Question: What impact resulted from increasing or decreasing the training window?
+
 Answer: Increasing the training window brought the results more in line with the actual returns which in this case was a negative effect since our original model out performed the actual returns.
 
 Question: What impact resulted from increasing or decreasing either or both of the SMA windows?
+
 Answer: Changing the SMA windows dramatically changed the strategy results. Though it made them difficult to compare to one another exactly in overall cumulative return since different window sizes affected the size of the training and testing data so the results were not run in the exact same conditions. In the future I will have to make accomodations for this so it is easier to tune the strategy
 
 Question: Did this new model (Logistic Regression) perform better or worse than the provided baseline model? Did this new model perform better or worse than your tuned trading algorithm?
+
 Answer: It performed better for the first portion of the test but then dramatically underperformed at the end of the model making its overall performance worse.
 
 Interestingly the version with a shortened longer SMA (4v25 model) performed much more poorly than I had anticipated, I had assumed having more reactive moving averages would give the model a better ability to predict performance. I believe the issue with the two short averages was that there was too much "noise" making it difficult to predict performance, especially in comparison to the longer SMA versions. The ones with the long models (31v155) under performed the ticker it was tracking up until the the last final run up in the market. I believe this happened primarily because the short positions were difficult to execute with such slow moving averages especially in a bullish market. I had the opposite problem with my LogisiticRegression model 
